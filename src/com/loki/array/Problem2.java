@@ -1,4 +1,4 @@
-package com.lokesh.arrays;
+package com.loki.array;
 
 public class Problem2 {
 

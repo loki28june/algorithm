@@ -1,9 +1,10 @@
-package com.loki.Trees;
+package com.loki.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
-public class LevelOrderTraversalDoubleQ {
+public class ReverseLevelOrderTraversalQAndS {
 
 	private static void levelOrder(Node root) {
 		int height = height(root);
@@ -55,49 +56,42 @@ public class LevelOrderTraversalDoubleQ {
 		tree.getRoot().left.left = new Node(4);
 		tree.getRoot().left.right = new Node(5);
 
-		Queue<Node> q1 = new LinkedList<>();
-		Queue<Node> q2 = new LinkedList<>();
+		Queue<Node> q = new LinkedList<>();
+		
+		Stack<Node> s = new Stack<>();
 
 		if (tree.getRoot() != null) {
-			q1.add(tree.getRoot());
-		} else {
+			q.add(tree.getRoot());
+		}
+
+		else {
 			System.out.println("root is null");
 		}
 
-		while (!q1.isEmpty() || !q2.isEmpty()) {
+		while (!q.isEmpty()) {
 
-			while (!q1.isEmpty()) {
+			Node temp = q.poll();
 
-				Node temp = q1.poll();
+			//System.out.print(temp.key + " ");
+			
+			s.push(temp);
 
-				if (temp.left != null) {
-					q2.add(temp.left);
-
-				}
-				if (temp.right != null) {
-					q2.add(temp.right);
-				}
-
-				System.out.print(temp.key + " ");
+			if (temp.right != null) {
+				q.add(temp.right);
+			}
+			
+			if (temp.left != null) {
+				q.add(temp.left);
 
 			}
+			
+			
+			//System.out.println();
 
-			System.out.println();
-
-			while (!q2.isEmpty()) {
-
-				Node temp = q2.poll();
-				if (temp.left != null) {
-					q1.add(temp.left);
-
-				}
-				if (temp.right != null) {
-					q1.add(temp.right);
-				}
-				System.out.print(temp.key + " ");
-			}
-
-			System.out.println();
+		}
+		
+		while(!s.isEmpty()){
+			System.out.println(s.pop().key);
 		}
 
 		// levelOrder(tree.getRoot());

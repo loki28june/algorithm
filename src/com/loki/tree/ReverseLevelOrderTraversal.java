@@ -1,12 +1,15 @@
-package com.loki.Trees;
+package com.loki.tree;
 
-public class LevelOrderTraversal {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ReverseLevelOrderTraversal {
 	
 	
 	private static void  levelOrder(Node root){
 		int height = height(root);
 		
-		for(int i = 1 ; i <= height ; i++){
+		for(int i = height ; i >= 0 ; i--){
 			printLevel(root, i);
 		}
 		
@@ -77,5 +80,3 @@ public class LevelOrderTraversal {
 	}
 
 }
-
-

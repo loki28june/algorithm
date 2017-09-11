@@ -1,4 +1,4 @@
-package com.loki.java8;
+package com.loki.java;
 
 public class LambdaExamples {
 

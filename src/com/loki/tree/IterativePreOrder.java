@@ -1,8 +1,8 @@
-package com.loki.Trees;
+package com.loki.tree;
 
 import java.util.Stack;
 
-import com.loki.Trees.InorderWithoutRecursion.Node;
+import com.loki.tree.InorderWithoutRecursion.Node;
 
 public class IterativePreOrder {
 	static Node root = null;

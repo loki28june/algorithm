@@ -1,10 +1,9 @@
-package com.loki.Trees;
+package com.loki.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
-public class ReverseLevelOrderTraversalQAndS {
+public class LevelOrderTraversalQueue {
 
 	private static void levelOrder(Node root) {
 		int height = height(root);
@@ -57,8 +56,6 @@ public class ReverseLevelOrderTraversalQAndS {
 		tree.getRoot().left.right = new Node(5);
 
 		Queue<Node> q = new LinkedList<>();
-		
-		Stack<Node> s = new Stack<>();
 
 		if (tree.getRoot() != null) {
 			q.add(tree.getRoot());
@@ -72,26 +69,18 @@ public class ReverseLevelOrderTraversalQAndS {
 
 			Node temp = q.poll();
 
-			//System.out.print(temp.key + " ");
-			
-			s.push(temp);
+			System.out.print(temp.key + " ");
 
-			if (temp.right != null) {
-				q.add(temp.right);
-			}
-			
 			if (temp.left != null) {
 				q.add(temp.left);
 
 			}
-			
+			if (temp.right != null) {
+				q.add(temp.right);
+			}
 			
 			//System.out.println();
 
-		}
-		
-		while(!s.isEmpty()){
-			System.out.println(s.pop().key);
 		}
 
 		// levelOrder(tree.getRoot());

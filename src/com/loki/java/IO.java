@@ -1,4 +1,4 @@
-package com.loki.io;
+package com.loki.java;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

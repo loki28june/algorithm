@@ -1,4 +1,4 @@
-package com.loki.Trees;
+package com.loki.tree;
 
 public class LCA {
 	static Node r;

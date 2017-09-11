@@ -1,4 +1,4 @@
-package com.lokesh.arrays;
+package com.loki.array;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.loki.Trees;
+package com.loki.tree;
 
-import com.loki.Trees.IdenticalTrees.Node;
+import com.loki.tree.IdenticalTrees.Node;
 
 public class MaxDepthTree {
 	static Node root1,root2;

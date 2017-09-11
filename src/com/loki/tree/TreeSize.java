@@ -1,23 +1,17 @@
-package com.loki.Trees;
+package com.loki.tree;
 
-import com.loki.Trees.IterativePreOrder.Node;
+import com.loki.tree.IterativePreOrder.Node;
 
-public class DeleteTree {
+public class TreeSize {
 	static Node root = null;
 
 
 
-	public static void deleteTree(Node root) {
+	public static int getSize(Node root) {
 		if (root == null) {
-			return;
+			return 0;
 		}
-		
-		
-		deleteTree(root.left);
-		
-		deleteTree(root.right);
-		
-		root = null;
+		return getSize(root.left) + getSize(root.right) + 1;
 
 	}
 
@@ -28,7 +22,7 @@ public class DeleteTree {
 		root.left.left = new Node(4);
 		root.left.right = new Node(5);
 		;
-		deleteTree(root);
+		System.out.println(getSize(root));
 	}
 
 }
