@@ -15,8 +15,10 @@ public class LinkedListMiddle {
 	}
 
 	public void insert(int data) {
-		if (head == null)
+		if (head == null){
 			head = new Node(data);
+			return;
+		}
 
 		Node temp = head;
 		while (temp.next != null) {
@@ -26,7 +28,7 @@ public class LinkedListMiddle {
 		temp.next = new Node(data);
 	}
 
-	public int middleElement(Node head) {
+	public int middleElement() {
 		Node fast = head;
 		Node slow = head;
 
@@ -51,7 +53,7 @@ public class LinkedListMiddle {
 		lm.insert(7);
 		lm.insert(2);
 		
-		System.out.println("middle of linkedlist=>" +lm.middleElement(lm.head));
+		System.out.println("middle of linkedlist=>" +lm.middleElement());
 
 	}
 
