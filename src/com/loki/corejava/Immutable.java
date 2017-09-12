@@ -1,18 +1,18 @@
-package com.loki.java;
+package com.loki.corejava;
 
 public final class Immutable {
 
 	private int personid;
 	private String name;
-	private final Person person;
+	private final ComparableAndComparator person;
 	
 	public Immutable() {
-		person = new Person();
+		person = new ComparableAndComparator();
 	}
 	
-	public Immutable(Person p) {
+	public Immutable(ComparableAndComparator p) {
 		
-		person = new Person();
+		person = new ComparableAndComparator();
 		person.age = p.age; 
 	}
 	
@@ -24,7 +24,7 @@ public final class Immutable {
 		return name;
 	}
 
-	public Person getPerson() {
+	public ComparableAndComparator getPerson() {
 		return person;
 	}
 

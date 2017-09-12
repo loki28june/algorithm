@@ -1,4 +1,4 @@
-package com.loki.java;
+package com.loki.corejava;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

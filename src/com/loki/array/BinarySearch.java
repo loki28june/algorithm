@@ -1,6 +1,6 @@
 package com.loki.array;
 
-public class Problem2 {
+public class BinarySearch {
 
 	private int[] arr = { 1, 3, 5, 6, 9, 11 };
 	
@@ -45,7 +45,7 @@ public class Problem2 {
 	
 	
 	public static void main(String[] args) {
-		Problem2 o = new Problem2();
+		BinarySearch o = new BinarySearch();
 		int length = o.arr.length;
 		int i = o.binarySearch(0, length - 1, 15);
 		if(i != -1){

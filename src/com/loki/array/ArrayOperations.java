@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Search, insert and delete in an unsorted array
-public class Problem1 {
+public class ArrayOperations {
 	private static int[] arr = {5,2,1,6,9,7};
 	private static List<Integer> arrList = new ArrayList<>();
 	
