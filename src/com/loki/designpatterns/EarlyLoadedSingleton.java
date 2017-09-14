@@ -1,6 +1,9 @@
 package com.loki.designpatterns;
 
-public final class EarlyLoadedSingleton {
+import java.io.Serializable;
+
+public final class EarlyLoadedSingleton implements Cloneable , Serializable{
+	private static final long serialVersionUID = 1L;
 	private static final EarlyLoadedSingleton _instance = new EarlyLoadedSingleton();
 
 	private EarlyLoadedSingleton() {
@@ -15,6 +18,10 @@ public final class EarlyLoadedSingleton {
 
 	public Object Clone() throws CloneNotSupportedException{
 		throw new CloneNotSupportedException();
+	}
+	
+	public EarlyLoadedSingleton readResolve(){
+		return _instance;
 	}
 
 
