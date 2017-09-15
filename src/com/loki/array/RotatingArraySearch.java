@@ -5,7 +5,6 @@ public class RotatingArraySearch {
 	int to_search = 10;
 	
 	public int findRotationIndex(){
-		int pivot = 0;
 		for(int i= 0,j = 1; j < arr.length;i++,j++){
 			if(arr[i] > arr[j]){
 				return j;

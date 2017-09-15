@@ -1,6 +1,6 @@
 package com.loki.array;
 
-public class BS {
+public class BinarySearchRecursion {
 	
 	public void bs(int low, int high,int[] arr,int n){
 		
@@ -22,7 +22,7 @@ public class BS {
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3, 4, 5, 6 };
 		int x = 6;
-		BS bs = new BS();
+		BinarySearchRecursion bs = new BinarySearchRecursion();
 		bs.bs(0, arr.length - 1, arr, x);
 
 	}
