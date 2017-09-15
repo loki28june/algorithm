@@ -1,16 +1,14 @@
 package com.loki.stack;
 
-import com.loki.queue.Queue;
+import java.util.LinkedList;
+import java.util.Queue;;
 
 public class StackUsingQueue {
 	Node top;
-	Queue q;
+	Queue<Integer> q1 = new LinkedList<>();
+	Queue<Integer> q2 = new LinkedList<>();
 	
-	public StackUsingQueue(){
-		q = new Queue();
-	}
-	
-	private class Node {
+private class Node {
 		int data;
 		Node next;
 
@@ -22,13 +20,19 @@ public class StackUsingQueue {
 	}
 	
 	public void push(int n){
-		if(top == null){
-			q.enqueue(n);
-			//top = 
+		q2.add(n);
+		while(q1.size() != 0){
+			q2.add(q1.remove());
 		}
 		
+		Queue<Integer> temp = q1;
+		q1 = q2;
+		q2 = temp;
 	}
 	
+	public Node pop(){
+		return null;
+	}
 	
 
 	public static void main(String[] args) {
