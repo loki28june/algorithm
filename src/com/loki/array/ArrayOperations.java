@@ -56,7 +56,7 @@ public class ArrayOperations {
 	
 	
 	public static void main(String[] args) {
-		print();
+	  print();
 	  System.out.println("index of item is " + search(9));
 	  insert(28);
 	  delete(1);
