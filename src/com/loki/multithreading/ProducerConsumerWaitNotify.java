@@ -59,22 +59,8 @@ public class ProducerConsumerWaitNotify {
 
 		final PC pc = new PC();
 
-		Thread t1 = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				pc.produce();
-
-			}
-		});
-
-		Thread t2 = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				pc.consume();
-			}
-		});
+		Thread t1 = new Thread(() -> pc.produce());
+		Thread t2 = new Thread(() -> pc.consume());
 
 		t1.start();
 		t2.start();
@@ -82,5 +68,4 @@ public class ProducerConsumerWaitNotify {
 		t2.join();
 
 	}
-
 }

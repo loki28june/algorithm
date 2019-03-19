@@ -1,29 +1,27 @@
 package com.loki.array;
 
 public class BinarySearchRecursion {
-	
-	public void bs(int low, int high,int[] arr,int n){
-		
-		if(low > high) return;
-		
-		int mid = (low + high)/2;
-		
-		if(arr[mid] == n){
-			System.out.println("found at position "+mid);
-		}
-		else if(arr[mid] > n){
-			bs(low, mid - 1, arr, n);
-		}
-		else{
-			bs(mid + 1,high, arr, n);
+
+	public int binarySearch(int low, int high, int[] arr, int n) {
+		if (low > high)
+			return -1;
+		int mid = (low + high) / 2;
+
+		if (arr[mid] == n) {
+			return (mid + 1);
+		} else if (arr[mid] > n) {
+			return binarySearch(low, mid - 1, arr, n);
+		} else {
+			return binarySearch(mid + 1, high, arr, n);
 		}
 	}
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3, 4, 5, 6 };
 		int x = 6;
-		BinarySearchRecursion bs = new BinarySearchRecursion();
-		bs.bs(0, arr.length - 1, arr, x);
+		BinarySearchRecursion binarySearchrecursion = new BinarySearchRecursion();
+		int position = binarySearchrecursion.binarySearch(0, arr.length - 1, arr, x);
+		System.out.println(position);
 
 	}
 
