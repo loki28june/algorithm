@@ -1,4 +1,6 @@
 /bin/
+algorithm.iml
+.idea/
 /build/
 /dist/
 .classpath
