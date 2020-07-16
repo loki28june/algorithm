@@ -3,6 +3,7 @@ algorithm.iml
 .idea/
 /build/
 /dist/
+/out/
 .classpath
 .project
 .settings
