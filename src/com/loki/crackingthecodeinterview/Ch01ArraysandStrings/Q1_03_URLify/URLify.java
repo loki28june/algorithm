@@ -1,32 +1,43 @@
 package com.loki.crackingthecodeinterview.Ch01ArraysandStrings.Q1_03_URLify;
 
 public class URLify {
-    private static String getUrlify(String s, int truelength){
-        char[] content = s.toCharArray();
-        int countSpace = 0;
-        for(int i =0; i< truelength; i++){
-            if(content[i] == ' '){
-                countSpace++;
+    private static String getUrlify(char[] charArray, int trueLength) {
+        int numberOfSpaces = 0;
+        for (int i = 0; i < trueLength; i++) {
+            if (charArray[i] == ' ') {
+                numberOfSpaces++;
             }
         }
-        int index = truelength + 2 * countSpace;
-        for (int i = truelength -1 ; i > 0 ; i--){
-            if(content[i] != ' '){
-                content[index - 1] = content[i];
-                index = index -1;
-            }
-            else{
-                content[index -1 ] = '0';
-                content[index - 2] = '2';
-                content[index - 3] = '%';
+        int index = trueLength + numberOfSpaces * 2;
+        if(index < charArray.length){
+            charArray[index] = '\0'; // ending array in case of access spaces.
+        }
+        for (int i = trueLength - 1; i >= 0; i--) {
+            if (charArray[i] == ' ') {
+                charArray[index - 1] = '0';
+                charArray[index - 2] = '2';
+                charArray[index - 3] = '%';
                 index = index - 3;
+            } else {
+                charArray[index - 1] = charArray[i];
+                index--;
             }
         }
-        return new String(content);
+        return new String(charArray);
     }
 
-    public static void main(String[] args){
+    private static int findLastCharacter(char[] chars){
+        for(int i=chars.length-1;i>=0;i--){
+            if(chars[i] != ' '){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
         String s = "Mr John Smith    ";
-        System.out.print(getUrlify(s,13));
+        char[] charArray = s.toCharArray();
+        System.out.print(getUrlify(charArray, findLastCharacter(charArray) + 1));
     }
 }
