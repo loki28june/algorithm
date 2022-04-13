@@ -2,30 +2,27 @@ package com.loki.crackingthecodeinterview.Ch01ArraysandStrings.Q1_06_string_comp
 
 public class StringCompression {
 
-    private static String getCompressedString(String originalString){
-        int prev = 0, countChar = 1;
-        StringBuilder sb = new StringBuilder();
-        for(int i = 1; i < originalString.length();i++){
-            if(originalString.charAt(i) == originalString.charAt(prev)){
-                countChar++;
+    private static String getCompressedString(String originalString) {
+        char currentChar = ' ', nextChar=' ';
+        int currentCharCount = 1;
+        StringBuilder compressed = new StringBuilder();
+        for (int i = 0; i < originalString.length() - 1; i++) {
+            currentChar = originalString.charAt(i);
+            nextChar = originalString.charAt(i + 1);
+            if (nextChar == currentChar) {
+                currentCharCount++;
+            } else {
+                compressed.append(currentChar).append(currentCharCount);
+                currentCharCount = 1;
             }
-            else {
-                sb.append(originalString.charAt(prev));
-                sb.append(countChar);
-                countChar = 1;
-            }
-            prev++;
         }
-        sb.append(originalString.charAt(originalString.length() - 1));
-        sb.append(countChar);
-        String compressedString = sb.toString();
-        if(compressedString.length() > originalString.length()){
-            return originalString;
+        if (nextChar == currentChar) {
+            compressed.append(currentChar).append(currentCharCount);
         }
-        return compressedString;
+        return compressed.toString().length() < originalString.length() ? compressed.toString():originalString;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.println(getCompressedString("aabcccccaaa"));
     }
 
