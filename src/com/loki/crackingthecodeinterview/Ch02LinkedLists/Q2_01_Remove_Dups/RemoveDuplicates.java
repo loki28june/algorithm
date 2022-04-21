@@ -1,7 +1,7 @@
-package com.loki.crackingthecodeinterview.Ch02LinkedLists;
+package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_01_Remove_Dups;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
-import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.Node;
+import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +18,7 @@ public class RemoveDuplicates {
         printList(ll.getHead());
         Node head = removeDuplicatesWithBuffer(ll.getHead());
         printList(head);
-        Node head2= removeDuplicatesWithNoSpace(ll.getHead());
+        Node head2 = removeDuplicatesWithNoSpace(ll.getHead());
         printList(head2);
     }
 
@@ -38,16 +38,16 @@ public class RemoveDuplicates {
         }
         return head;
     }
+
     // With No extra space/buffer O(n) time and O(1) space
     private static Node removeDuplicatesWithNoSpace(Node head) {
         Node current = head;
         while (current != null) {
             Node runner = current;
-            while(runner.getNext() != null){
-                if(current.getData() == runner.getNext().getData()){
+            while (runner.getNext() != null) {
+                if (current.getData() == runner.getNext().getData()) {
                     runner.setNext(runner.getNext().getNext());
-                }
-                else {
+                } else {
                     runner = runner.getNext();
                 }
             }
@@ -56,13 +56,13 @@ public class RemoveDuplicates {
         return head;
     }
 
-    public static void printList(Node head){
-        if(head == null) return;
+    public static void printList(Node head) {
+        if (head == null) return;
         Node n = head;
-        while(n !=null){
-            System.out.print(n.getData()+" ");
+        while (n != null) {
+            System.out.print(n.getData() + " ");
             n = n.getNext();
         }
-        System.out.println("\n" +"=====================");
+        System.out.println("\n" + "=====================");
     }
 }
