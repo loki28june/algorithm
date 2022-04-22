@@ -6,15 +6,12 @@ import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.getPopulatedLinkedList;
+import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.printList;
+
 public class RemoveDuplicates {
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.append(4);
-        ll.append(1);
-        ll.append(3);
-        ll.append(4);
-        ll.append(5);
-        ll.append(1);
+        LinkedList ll = getPopulatedLinkedList(4, 1, 3, 4, 5);
         printList(ll.getHead());
         Node head = removeDuplicatesWithBuffer(ll.getHead());
         printList(head);
@@ -54,15 +51,5 @@ public class RemoveDuplicates {
             current = current.getNext();
         }
         return head;
-    }
-
-    public static void printList(Node head) {
-        if (head == null) return;
-        Node n = head;
-        while (n != null) {
-            System.out.print(n.getData() + " ");
-            n = n.getNext();
-        }
-        System.out.println("\n" + "=====================");
     }
 }

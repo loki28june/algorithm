@@ -43,4 +43,22 @@ public class LinkedList {
             current = current.getNext();
         }
     }
+
+    public static LinkedList getPopulatedLinkedList(int... arr) {
+        LinkedList ll = new LinkedList();
+        for (int i : arr) {
+            ll.append(i);
+        }
+        return ll;
+    }
+
+    public static void printList(Node head) {
+        if (head == null) return;
+        Node n = head;
+        while (n != null) {
+            System.out.print(n.getData() + " ");
+            n = n.getNext();
+        }
+        System.out.println("\n" + "=====================");
+    }
 }

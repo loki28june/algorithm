@@ -1,28 +1,24 @@
-package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_Kth_To_Last;
+package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_02_Kth_To_Last;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
 
+import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.getPopulatedLinkedList;
+
 public class KthToLast {
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-        ll.append(4);
-        ll.append(1);
-        ll.append(3);
-        ll.append(4);
-        ll.append(5);
-        ll.append(1);
-        ll.append(8);
-        ll.append(6);
-        ll.append(2);
+        LinkedList ll = getPopulatedLinkedList(4, 1, 3, 4, 5, 1, 8, 6, 2);
         printList(ll.getHead());
-        int result = printKthToLast(9, ll.getHead());
+        int result = printKthToLast(4, ll.getHead());
         System.out.println(result);
     }
 
     public static int printKthToLast(int k, Node head) {
         Node current = head, runner = head;
         while (k > 0) {
+            if (null == runner) {
+                return -1; // out of bound
+            }
             runner = runner.getNext();
             k--;
         }
