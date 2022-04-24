@@ -7,7 +7,11 @@ public class LinkedList {
         return head;
     }
 
-    public void setHead(Node head) {
+    public LinkedList() {
+        this.head = null;
+    }
+
+    public LinkedList(Node head) {
         this.head = head;
     }
 
@@ -60,5 +64,25 @@ public class LinkedList {
             n = n.getNext();
         }
         System.out.println("\n" + "=====================");
+    }
+
+    public static Node reverse(Node head) {
+        Node prev = null, next = null;
+        while (head != null) {
+            next = head.getNext();
+            head.setNext(prev);
+            prev = head;
+            head = next;
+        }
+        return prev;
+    }
+
+    public static int getLinkedListLength(Node head) {
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.getNext();
+        }
+        return count;
     }
 }

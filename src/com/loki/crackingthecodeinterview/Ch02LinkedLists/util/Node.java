@@ -5,7 +5,7 @@ public class Node {
     private Node next;
 
     // Constructor
-    Node(int d) {
+    public Node(int d) {
         data = d;
         next = null;
     }
