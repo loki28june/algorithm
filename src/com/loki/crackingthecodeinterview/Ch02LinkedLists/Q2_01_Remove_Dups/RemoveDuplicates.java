@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_01_Remove_Dups;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
-import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
+import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.Node;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,13 +25,13 @@ public class RemoveDuplicates {
         Node previous = null;
         Set<Integer> trackDuplicate = new HashSet<>();
         while (current != null) {
-            if (trackDuplicate.contains(current.getData())) {
-                previous.setNext(current.getNext());
+            if (trackDuplicate.contains(current.data)) {
+                previous.next = current.next;
             } else {
-                trackDuplicate.add(current.getData());
+                trackDuplicate.add(current.data);
                 previous = current;
             }
-            current = current.getNext();
+            current = current.next;
         }
         return head;
     }
@@ -41,14 +41,14 @@ public class RemoveDuplicates {
         Node current = head;
         while (current != null) {
             Node runner = current;
-            while (runner.getNext() != null) {
-                if (current.getData() == runner.getNext().getData()) {
-                    runner.setNext(runner.getNext().getNext());
+            while (runner.next != null) {
+                if (current.data == runner.next.data) {
+                    runner.next = runner.next.next;
                 } else {
-                    runner = runner.getNext();
+                    runner = runner.next;
                 }
             }
-            current = current.getNext();
+            current = current.next;
         }
         return head;
     }

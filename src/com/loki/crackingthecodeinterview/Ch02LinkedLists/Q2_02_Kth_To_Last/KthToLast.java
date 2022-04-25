@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_02_Kth_To_Last;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
-import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
+import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.Node;
 
 import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.getPopulatedLinkedList;
 
@@ -19,22 +19,22 @@ public class KthToLast {
             if (null == runner) {
                 return -1; // out of bound
             }
-            runner = runner.getNext();
+            runner = runner.next;
             k--;
         }
         while (runner != null) {
-            current = current.getNext();
-            runner = runner.getNext();
+            current = current.next;
+            runner = runner.next;
         }
-        return current.getData();
+        return current.data;
     }
 
     public static void printList(Node head) {
         if (head == null) return;
         Node n = head;
         while (n != null) {
-            System.out.print(n.getData() + " ");
-            n = n.getNext();
+            System.out.print(n.data + " ");
+            n = n.next;
         }
         System.out.println("\n" + "=====================");
     }

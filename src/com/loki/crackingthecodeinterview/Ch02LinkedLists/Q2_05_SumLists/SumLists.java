@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_05_SumLists;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
-import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
+import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.Node;
 
 import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.getLinkedListLength;
 import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.printList;
@@ -14,16 +14,16 @@ public class SumLists {
         LinkedList result = new LinkedList();
         int carry = 0;
         while (head1 != null || head2 != null) {
-            int sum = head1.getData() + head2.getData();
+            int sum = head1.data + head2.data;
             result.append(sum % 10 + carry);
             carry = (sum / 10 > 0) ? 1 : 0;
-            head1 = head1.getNext();
-            head2 = head2.getNext();
+            head1 = head1.next;
+            head2 = head2.next;
         }
         if (head1 != null) {
-            result.append(head1.getData() + carry);
+            result.append(head1.data + carry);
         } else if (head2 != null) {
-            result.append(head2.getData() + carry);
+            result.append(head2.data + carry);
         } else if (carry != 0) {
             result.append(carry);
         }
@@ -38,10 +38,10 @@ public class SumLists {
         } else if (count2 > count1) {
             padListWithZeros(list1, count2 - count1);
         }
-        Node head1 = LinkedList.reverse(list1.getHead());
-        Node head2 = LinkedList.reverse(list2.getHead());
+        Node head1 = LinkedList.reverseInPlace(list1.getHead());
+        Node head2 = LinkedList.reverseInPlace(list2.getHead());
         LinkedList resultList = getReverseOrderDigitsSum(head1, head2);
-        Node returnHead = LinkedList.reverse(resultList.getHead());
+        Node returnHead = LinkedList.reverseInPlace(resultList.getHead());
         return new LinkedList(returnHead);
     }
 

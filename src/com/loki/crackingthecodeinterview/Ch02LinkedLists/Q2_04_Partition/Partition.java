@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch02LinkedLists.Q2_04_Partition;
 
 import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList;
-import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.Node;
+import com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.Node;
 
 import static com.loki.crackingthecodeinterview.Ch02LinkedLists.util.LinkedList.printList;
 
@@ -18,22 +18,22 @@ public class Partition {
         LinkedList finalList = new LinkedList();
         Node current = head;
         while (current != null) {
-            if (current.getData() < pivot) {
-                leftList.append(current.getData());
+            if (current.data < pivot) {
+                leftList.append(current.data);
             } else {
-                rightList.append(current.getData());
+                rightList.append(current.data);
             }
-            current = current.getNext();
+            current = current.next;
         }
         Node currentLeft = leftList.getHead();
         while (currentLeft != null) {
-            finalList.append(currentLeft.getData());
-            currentLeft = currentLeft.getNext();
+            finalList.append(currentLeft.data);
+            currentLeft = currentLeft.next;
         }
         Node currentRight = rightList.getHead();
         while (currentRight != null) {
-            finalList.append(currentRight.getData());
-            currentRight = currentRight.getNext();
+            finalList.append(currentRight.data);
+            currentRight = currentRight.next;
         }
         return finalList.getHead();
     }

@@ -7,6 +7,21 @@ public class LinkedList {
         return head;
     }
 
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
+    public static class Node {
+        public int data;
+        public Node next;
+
+        // Constructor
+        public Node(int d) {
+            data = d;
+            next = null;
+        }
+    }
+
     public LinkedList() {
         this.head = null;
     }
@@ -21,30 +36,30 @@ public class LinkedList {
             return;
         }
         Node current = head;
-        while (current.getNext() != null) {
-            current = current.getNext();
+        while (current.next != null) {
+            current = current.next;
         }
-        current.setNext(new Node(data));
+        current.next = new Node(data);
     }
 
     public void prepend(int data) {
         Node newHead = new Node(data);
-        newHead.setNext(head);
+        newHead.next = head;
         head = newHead;
     }
 
     public void deleteWithValue(int data) {
         if (head == null) return;
-        if (head.getData() == data) {
-            head = head.getNext();
+        if (head.data == data) {
+            head = head.next;
             return;
         }
         Node current = head;
-        while (current.getNext() != null) {
-            if (current.getNext().getData() == data) {
-                current.setNext(current.getNext().getNext());
+        while (current.next != null) {
+            if (current.next.data == data) {
+                current.next = current.next.next;
             }
-            current = current.getNext();
+            current = current.next;
         }
     }
 
@@ -60,28 +75,39 @@ public class LinkedList {
         if (head == null) return;
         Node n = head;
         while (n != null) {
-            System.out.print(n.getData() + " ");
-            n = n.getNext();
+            System.out.print(n.data + " ");
+            n = n.next;
         }
         System.out.println("\n" + "=====================");
     }
 
-    public static Node reverse(Node head) {
-        Node prev = null, next = null;
-        while (head != null) {
-            next = head.getNext();
-            head.setNext(prev);
-            prev = head;
-            head = next;
+    public static Node reverseInPlace(Node head) {
+        Node prev = null, current = head, next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
         return prev;
+    }
+
+    public static Node reverseAndClone(Node node) {
+        Node head = null;
+        while (node != null) {
+            Node n = new Node(node.data);
+            n.next = head;
+            head = n;
+            node = node.next;
+        }
+        return head;
     }
 
     public static int getLinkedListLength(Node head) {
         int count = 0;
         while (head != null) {
             count++;
-            head = head.getNext();
+            head = head.next;
         }
         return count;
     }
