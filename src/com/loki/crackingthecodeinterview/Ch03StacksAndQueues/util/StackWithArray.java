@@ -1,20 +1,24 @@
 package com.loki.crackingthecodeinterview.Ch03StacksAndQueues.util;
 
 public class StackWithArray {
-    public static final int MAX = 1000;
+    public int min;
+    public int max;
     private int top;
-    private int[] stack = new int[MAX];
+    private int[] stack;
 
-    StackWithArray() {
-        top = -1;
+    public StackWithArray(int top, int min, int max) {
+        this.top = top;
+        this.min = min;
+        this.max = max;
+        stack = new int[max];
     }
 
     boolean isEmpty() {
-        return top < 0;
+        return top < min;
     }
 
     public boolean push(int data) {
-        if (top >= MAX - 1) {
+        if (top >= max - 1) {
             System.out.println("Stack overflow");
             return false;
         }
@@ -40,14 +44,14 @@ public class StackWithArray {
     }
 
     public void print() {
-        for (int i = top; i >= 0; i--) {
+        for (int i = top; i >= min; i--) {
             System.out.print(" " + stack[i]);
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
-        StackWithArray stack = new StackWithArray();
+        StackWithArray stack = new StackWithArray(-1,0,9);
         stack.push(10);
         stack.push(9);
         stack.push(8);
