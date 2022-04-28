@@ -6,9 +6,10 @@ public class ThreeInOne {
 
     public static void main(String[] args) {
         int n = 9;
-        StackWithArray stackOne = new StackWithArray(-1, 0, n / 3);
-        StackWithArray stackTwo = new StackWithArray(n / 3 - 1, n / 3, 2 * n / 3);
-        StackWithArray stackThree = new StackWithArray(2 * n / 3 - 1, 2 * n / 3, n);
+        int[] array = new int[n];
+        StackWithArray stackOne = new StackWithArray(array, 0, n / 3);
+        StackWithArray stackTwo = new StackWithArray(array, n / 3, 2 * n / 3);
+        StackWithArray stackThree = new StackWithArray(array, 2 * n / 3, n);
         stackOne.push(9);
         stackOne.push(8);
         stackOne.push(7);
@@ -27,5 +28,8 @@ public class ThreeInOne {
         stackOne.print();
         stackTwo.print();
         stackThree.print();
+        for (int i:array) {
+            System.out.print(" "+i);
+        }
     }
 }

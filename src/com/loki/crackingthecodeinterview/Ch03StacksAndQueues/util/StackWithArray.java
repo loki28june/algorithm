@@ -6,11 +6,11 @@ public class StackWithArray {
     private int top;
     private int[] stack;
 
-    public StackWithArray(int top, int min, int max) {
-        this.top = top;
+    public StackWithArray(int arr[], int min, int max) {
+        this.top = min-1;
         this.min = min;
         this.max = max;
-        stack = new int[max];
+        stack = arr;
     }
 
     boolean isEmpty() {
@@ -51,7 +51,8 @@ public class StackWithArray {
     }
 
     public static void main(String[] args) {
-        StackWithArray stack = new StackWithArray(-1,0,9);
+        int[] arr = new int[10];
+        StackWithArray stack = new StackWithArray(arr,0,9);
         stack.push(10);
         stack.push(9);
         stack.push(8);
