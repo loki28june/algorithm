@@ -4,52 +4,63 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Question {
-    public static void main(String[] args) {
-        Graph graph = populateGraph();
-        System.out.println(findRoute(graph.nodes[0], graph.nodes[2]));
+    public enum State {
+        VISITED, VISITING, UNVISITED
     }
 
-    public static boolean findRoute(Node start, Node end) {
+    public static void main(String[] args) {
+        Graph graph = createNewGraph();
+        System.out.println(findRoute(graph, graph.vertices[3], graph.vertices[5]));
+    }
+
+    private static Graph createNewGraph() {
+        Graph graph = new Graph();
+        Node[] temp = new Node[6];
+
+        temp[0] = new Node("a", 3);
+        temp[1] = new Node("b", 0);
+        temp[2] = new Node("c", 0);
+        temp[3] = new Node("d", 1);
+        temp[4] = new Node("e", 1);
+        temp[5] = new Node("f", 0);
+
+        temp[0].addAdjacent(temp[1]);
+        temp[0].addAdjacent(temp[2]);
+        temp[0].addAdjacent(temp[3]);
+        temp[3].addAdjacent(temp[4]);
+        temp[4].addAdjacent(temp[5]);
+
+        for (int i = 0; i < 6; i++) {
+            graph.addNode(temp[i]);
+        }
+        return graph;
+    }
+
+    public static boolean findRoute(Graph g, Node start, Node end) {
         if (start == end) return true;
         Queue<Node> queue = new LinkedList<>();
-        start.visited = true;
+        for (Node u : g.getVertices()) {
+            u.state = State.UNVISITED;
+        }
+        start.state = State.VISITING;
         queue.add(start);
         while (!queue.isEmpty()) {
-            Node parent = queue.poll();
-            if (parent != null) {
-                parent.visited = true;
-                for (Node child : parent.children) {
-                    if (!child.visited) {
+            Node current = queue.poll();
+            if (current != null) {
+                for (Node child : current.getAdjacent()) {
+                    if (child.state == State.UNVISITED) {
                         if (end == child) {
                             return true;
                         }
-                        child.visited = true;
+                        child.state = State.VISITING;
                         queue.add(child);
                     }
                 }
+                current.state = State.VISITED;
             }
         }
         return false;
     }
 
-    private static Graph populateGraph() {
-        Graph graph = new Graph();
-        Node A = new Node();
-        A.name = "A";
-        Node B = new Node();
-        B.name = "B";
-        Node C = new Node();
-        C.name = "C";
-        Node D = new Node();
-        D.name = "D";
-        Node E = new Node();
-        E.name = "E";
-        A.children = new Node[]{C};
-        B.children = new Node[]{E};
-        C.children = new Node[]{D};
-        D.children = new Node[]{A};
-        E.children = new Node[]{B};
-        graph.nodes = new Node[]{A, B, C, D, E};
-        return graph;
-    }
+
 }
