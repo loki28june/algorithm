@@ -1,61 +1,29 @@
 package com.loki.randomproblems.tree;
 
 public class BasicTree {
-	private Node root;
-	
-	public Node getRoot() {
-		return root;
-	}
+    private Node root;
 
-	public void setRoot(Node root) {
-		this.root = root;
-	}
+    public Node getRoot() {
+        return root;
+    }
 
-	public BasicTree() {
-		root = null;
-	}
-	
-	public BasicTree(int key){
-		
-		this.root = new Node(key);
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		Node newNode = new Node(1);
-		//BasicTree tree = new BasicTree(newNode);
-		
-		/*tree.root.left = new Node(2);
-		tree.root.right = new Node(3);*/
-		
+    public void setRoot(Node root) {
+        this.root = root;
+    }
 
-	}
-	
-	
-	public static void printTree(Node root){
-		
-		
-	}
-	
-	
-	
-
+    public BasicTree(int key) {
+        this.root = new Node(key);
+    }
 }
 
-class Node{
-	int key;
-	Node left;
-	Node right;
-	
-	public Node(int n){
-		this.key = n;
-		left = null;
-		right = null;
-		
-	}
-	
-	
-	
-	
+class Node {
+    int key;
+    Node left;
+    Node right;
+
+    public Node(int n) {
+        this.key = n;
+        left = null;
+        right = null;
+    }
 }
