@@ -21,6 +21,18 @@ public class BinaryTree {
 			return right;
 		}
 
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		public void setLeft(TreeNode left) {
+			this.left = left;
+		}
+
+		public void setRight(TreeNode right) {
+			this.right = right;
+		}
+
 		public TreeNode(int data) {
 			this.data = data;
 		}
@@ -77,7 +89,6 @@ public class BinaryTree {
 			System.out.print(" "+ root.data);
 			inOrder(root.right);
 		}
-
 	}
 
 	public void postOrder(TreeNode root ){
