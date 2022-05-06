@@ -39,6 +39,7 @@ public class LevelOrderTraversal {
         tree.getRoot().right = new Node(3);
         tree.getRoot().left.left = new Node(4);
         tree.getRoot().left.right = new Node(5);
+        System.out.println("height of the tree is " + height(tree.getRoot()));
         levelOrder(tree.getRoot());
     }
 }

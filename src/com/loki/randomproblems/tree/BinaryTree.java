@@ -53,9 +53,12 @@ public class BinaryTree {
         TreeNode node30 = new TreeNode(30);
         TreeNode node40 = new TreeNode(40);
         TreeNode node50 = new TreeNode(50);
+        TreeNode node60 = new TreeNode(60);
+        TreeNode node70 = new TreeNode(70);
         root.left = node20;
         root.right = node30;
         node20.left = node40;
+        node40.left = node60;
         node30.right = node50;
         return root;
     }
