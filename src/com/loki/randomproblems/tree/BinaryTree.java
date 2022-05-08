@@ -3,10 +3,13 @@ package com.loki.randomproblems.tree;
 import java.util.Stack;
 
 public class BinaryTree {
+
     public static class TreeNode {
         private int data;
         private TreeNode left = null;
         private TreeNode right = null;
+        private TreeNode parent = null;
+        private boolean visited = false;
 
         public int getData() {
             return data;
@@ -14,6 +17,22 @@ public class BinaryTree {
 
         public TreeNode getLeft() {
             return left;
+        }
+
+        public boolean isVisited() {
+            return visited;
+        }
+
+        public void setVisited(boolean visited) {
+            this.visited = visited;
+        }
+
+        public TreeNode getParent() {
+            return parent;
+        }
+
+        public void setParent(TreeNode parent) {
+            this.parent = parent;
         }
 
         @Override
@@ -48,19 +67,38 @@ public class BinaryTree {
 
     // creating binary tree
     public TreeNode createBinaryTree() {
-        TreeNode node1 = new TreeNode(25);
-        TreeNode node2 = new TreeNode(15);
-        TreeNode node3 = new TreeNode(30);
-        TreeNode node4 = new TreeNode(10);
-        TreeNode node5 = new TreeNode(20);
-        TreeNode node6 = new TreeNode(28);
-        TreeNode node7 = new TreeNode(35);
+        TreeNode node1 = new TreeNode(15);
+        TreeNode node2 = new TreeNode(10);
+        TreeNode node3 = new TreeNode(20);
+        TreeNode node4 = new TreeNode(8);
+        TreeNode node5 = new TreeNode(12);
+        TreeNode node6 = new TreeNode(17);
+        TreeNode node7 = new TreeNode(25);
+        TreeNode node8 = new TreeNode(6);
+        TreeNode node9 = new TreeNode(11);
+        TreeNode node10 = new TreeNode(16);
+        TreeNode node11 = new TreeNode(27);
         node1.left = node2;
         node1.right = node3;
+        node1.parent = null;
         node2.left = node4;
         node2.right = node5;
+        node2.parent = node1;
         node3.left = node6;
         node3.right = node7;
+        node3.parent = node1;
+        node4.left = node8;
+        node4.parent = node2;
+        node5.left = node9;
+        node5.parent = node2;
+        node6.left = node10;
+        node6.parent = node3;
+        node7.right = node11;
+        node7.parent = node3;
+        node8.parent = node4;
+        node9.parent = node5;
+        node10.parent = node6;
+        node11.parent = node7;
         return node1;
     }
 
