@@ -18,7 +18,7 @@ public class OrderBuilder {
                 {projects[3], projects[2]}};
         OrderBuilder orderBuilder = new OrderBuilder();
         Project[] projects1 = orderBuilder.buildGraph(projects, dependencies);
-        Stack<Project> stack = orderBuilder.buildOrder(projects1);
+        Stack<Project> stack = orderBuilder.orderProjects(projects1);
         printStack(stack);
     }
 
@@ -29,7 +29,7 @@ public class OrderBuilder {
         return projects;
     }
 
-    public Stack<Project> buildOrder(Project[] projects) {
+    public Stack<Project> orderProjects(Project[] projects) {
         Stack<Project> stack = new Stack<>();
         for (Project project : projects) {
             if (project.getState() == Project.State.BLANK) {
@@ -49,7 +49,7 @@ public class OrderBuilder {
         if (project.getState() == Project.State.BLANK) {
             project.setState(Project.State.PARTIAL);
             for (Project child : project.getChildren()) {
-                if (child != null && child.getState() == Project.State.BLANK) {
+                if (child != null) {
                     if (!doDFS(child, stack)) {
                         return false;
                     }
