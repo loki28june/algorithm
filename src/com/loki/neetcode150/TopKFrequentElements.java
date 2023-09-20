@@ -10,12 +10,8 @@ public class TopKFrequentElements {
             store.add(new ArrayList<>());
         }
         List<Integer> result = new ArrayList<>();
-        for (int n : nums) {
-            freqMap.put(n, freqMap.getOrDefault(n, 0) + 1);
-        }
-        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
-            store.get(entry.getValue() - 1).add(entry.getKey());
-        }
+        populateFrequencyMap(nums, freqMap);
+        StoreFreqAsIndexAndValueAsListValue(freqMap, store);
         int len = nums.length;
         while (k > 0 && len > 0) {
             if (!store.get(len - 1).isEmpty()) {
@@ -28,6 +24,18 @@ public class TopKFrequentElements {
             len--;
         }
         return result.stream().mapToInt(i -> i).toArray();
+    }
+
+    private static void StoreFreqAsIndexAndValueAsListValue(Map<Integer, Integer> freqMap, List<List<Integer>> store) {
+        for (Map.Entry<Integer, Integer> entry : freqMap.entrySet()) {
+            store.get(entry.getValue() - 1).add(entry.getKey());
+        }
+    }
+
+    private static void populateFrequencyMap(int[] nums, Map<Integer, Integer> freqMap) {
+        for (int n : nums) {
+            freqMap.put(n, freqMap.getOrDefault(n, 0) + 1);
+        }
     }
 
     public static void main(String[] args) {
