@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch04TreesAndGraphs.Q4_04_CheckBalanced;
 
-import com.loki.randomproblems.tree.BinaryTree;
-import com.loki.randomproblems.tree.BinaryTree.TreeNode;
+import com.loki.basic.dsa.tree.BinaryTree;
+import com.loki.basic.dsa.tree.BinaryTree.TreeNode;
 
 public class CheckBalancedTree {
 

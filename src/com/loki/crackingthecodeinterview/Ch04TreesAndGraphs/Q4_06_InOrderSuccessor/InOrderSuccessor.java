@@ -1,7 +1,7 @@
 package com.loki.crackingthecodeinterview.Ch04TreesAndGraphs.Q4_06_InOrderSuccessor;
 
-import com.loki.randomproblems.tree.BinaryTree;
-import com.loki.randomproblems.tree.BinaryTree.TreeNode;
+import com.loki.basic.dsa.tree.BinaryTree;
+import com.loki.basic.dsa.tree.BinaryTree.TreeNode;
 
 public class InOrderSuccessor {
     public static void main(String[] args) {
