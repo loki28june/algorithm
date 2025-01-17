@@ -1,4 +1,4 @@
-package com.loki;
+package com.loki.techinterviews;
 
 public class SecondMaximum {
     public static void main(String[] args) {
